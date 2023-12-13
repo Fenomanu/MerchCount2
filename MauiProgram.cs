@@ -13,6 +13,7 @@ namespace MerchCount2
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Lemon-Tea.ttf", "LemonTea");
                 });
 
 #if DEBUG
