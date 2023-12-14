@@ -2,44 +2,90 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MerchCount2.MainMenu"
-             xmlns:local="clr-namespace:MerchCount2"
+             xmlns:local="clr-namespace:MerchCount2.Views"
              Title="MainMenu">
-    <FlexLayout Direction="Column">
+    <FlexLayout Direction="Column" JustifyContent="Start" BackgroundColor="#FFC0CB">
 
         <!-- Header -->
         <Label Text="HEADER"
                x:Name="TopContent"
                FontSize="18"
                BackgroundColor="#FFC0CB"
-               HorizontalTextAlignment="Center" />
+               HorizontalTextAlignment="Center"
+               FlexLayout.Grow="0"/>
+        <Grid  Margin="15,5">
+            <!-- Right Square -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
 
-        <!-- Body -->
-        
-        <FlexLayout FlexLayout.Grow="1">
 
-            <FlexLayout FlexLayout.Grow="1" 
-                        x:Name="BodyContent" 
+            <!-- Scrollable Buttons on the Left -->
+            <Frame CornerRadius="10" 
+                        Padding="0"
+                        HasShadow="False"
+                        BackgroundColor="#565553"
+                        Grid.Row="0"
+                        Grid.RowSpan="4"
+                        Grid.Column="0">
+                <ScrollView Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal">
+                        <!-- Add your buttons here -->
+                        <local:ProductButton/>
+                        <local:ProductButton/>
+                        <local:ProductButton/>
+                        <local:ProductButton/>
+                        <local:ProductButton/>
+                        <local:ProductButton/>
+                        <local:ProductButton/>
+                        <local:ProductButton/>
+                        <!-- Repeat for other buttons -->
+                    </StackLayout>
+                </ScrollView>
+            </Frame>
+
+            <!-- Text and Buttons on the Right -->
+            <Label Text="100 €"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"/>
+            <local:SmallButon Grid.Row="0"
+                    Grid.Column="2"/>
+            <local:SmallButon
+                    Grid.Row="1"
+                    Grid.Column="1"/>
+            <local:SmallButon
+                    Grid.Row="1"
+                    Grid.Column="2"/>
+
+        </Grid>
+        <ScrollView VerticalScrollBarVisibility="Never"
+                    FlexLayout.Basis="0"
+                    FlexLayout.Grow="1">
+            <FlexLayout x:Name="BodyContent"
+                        JustifyContent="Center"
                         Wrap="Wrap"
                         AlignContent="Start"
                         BackgroundColor="#FFC0CB"
                         AlignItems="Start">
-                <local:GroupButton></local:GroupButton>
+                <!-- Dynamic content goes here -->
             </FlexLayout>
-            <!-- Navigation items-->
-            <BoxView FlexLayout.Basis="50"
-                    FlexLayout.Order="-1"
-                    Color="#FFC0CB" />
-
-            <!-- Aside items -->
-            <BoxView FlexLayout.Basis="50"
-                    Color="#FFC0CB" />
-
-        </FlexLayout>
+        </ScrollView>
 
         <!-- Footer -->
         <Label Text="FOOTER"
                FontSize="18"
                BackgroundColor="#FFC0CB"
-               HorizontalTextAlignment="Center" />
+               HorizontalTextAlignment="Center"
+               FlexLayout.Grow="0"/>
     </FlexLayout>
 </ContentPage>
