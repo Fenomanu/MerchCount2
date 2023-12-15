@@ -10,10 +10,10 @@ public partial class MainMenu : ContentPage
 {
 	GroupDAO groupDAO;
 	private int _counter = 0;
-    public MainMenu()
-    {
-
-    }
+    //public MainMenu()
+    //{
+    //    InitializeComponent();
+    //}
 	public MainMenu(GroupDAO database)
 	{
         InitializeComponent();

@@ -11,6 +11,10 @@ public partial class TestThree : ContentPage
 {
     GroupDAO groupDAO;
     private int _counter = 0;
+    //public TestThree()
+    //{
+    //    InitializeComponent();
+    //}
     public TestThree(GroupDAO database)
     {
         InitializeComponent();
