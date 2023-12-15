@@ -8,12 +8,13 @@
         HorizontalOptions="Center">-->
     <Button Text="Product"
                 x:Name="ButtonText"
+                FlexLayout.Grow="1"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 BackgroundColor="White"
-                MinimumHeightRequest="100"
+                MinimumHeightRequest="110"
                 Margin="10"
-                MinimumWidthRequest="100">
+                MinimumWidthRequest="110">
         <Button.Shadow>
             <Shadow Brush="Black"
             Offset="-5,5"

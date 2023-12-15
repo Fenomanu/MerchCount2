@@ -6,20 +6,17 @@ using System.Diagnostics;
 
 namespace MerchCount2;
 
-public partial class MainMenu : ContentPage
-{
-	GroupDAO groupDAO;
-	private int _counter = 0;
-    public MainMenu()
-    {
 
-    }
-	public MainMenu(GroupDAO database)
-	{
+public partial class TestThree : ContentPage
+{
+    GroupDAO groupDAO;
+    private int _counter = 0;
+    public TestThree(GroupDAO database)
+    {
         InitializeComponent();
-		groupDAO = database;
+        groupDAO = database;
         LoadButtons();
-	}
+    }
     private async void LoadButtons()
     {
         List<Group> groups = await groupDAO.GetPublicGroupsAsync();
@@ -33,11 +30,11 @@ public partial class MainMenu : ContentPage
     }
 
     private async void OnButtonClicked(object? sender, EventArgs e)
-	{
+    {
         if (sender is null) return;
-		TopContent.Text = ((Button)sender).Text;
+        TopContent.Text = ((Button)sender).Text;
         Group g = new Group();
-		_counter++;
+        _counter++;
         g.Name = string.Format("Grupo {0}", _counter);
         g.Price = 10;
         await groupDAO.SaveItemAsync(g);
@@ -48,5 +45,4 @@ public partial class MainMenu : ContentPage
         b.Button.Clicked += OnButtonClicked;
         BodyContent.Add(b);
     }
-
 }

@@ -70,6 +70,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Cart.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="TestThree.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="TestTwo.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\GroupButton.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

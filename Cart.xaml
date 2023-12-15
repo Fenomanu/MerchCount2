@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MerchCount2.Cart"
+             Title="Cart">
+    <ContentView x:Name="CartPopup" IsVisible="False" BackgroundColor="White">
+        <StackLayout>
+            <Label Text="Carrito" FontSize="Large" HorizontalOptions="Center" />
+
+            <!-- Lista de Productos -->
+            <CollectionView x:Name="CartItems">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding Image}" WidthRequest="60" HeightRequest="60"/>
+                            <Label Text="{Binding Name}" />
+                            <Label Text="{Binding Category}" />
+                            <Entry Text="{Binding Price}" Keyboard="Numeric" />
+                            <Button Text="Borrar" Command="{Binding DeleteCommand}" CommandParameter="{Binding .}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Total y Botón de Compra -->
+            <Entry Placeholder="Total" Text="{Binding TotalPrice}" Keyboard="Numeric" />
+            <Button Text="Completar Compra" Clicked="OnCompletePurchaseClicked" />
+        </StackLayout>
+    </ContentView>
+</ContentPage>
