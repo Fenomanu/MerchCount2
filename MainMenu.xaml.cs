@@ -19,7 +19,9 @@ public partial class MainMenu : ContentPage
         InitializeComponent();
 		groupDAO = database;
         LoadButtons();
-	}
+        CartButton.Button.Clicked += OnOpenCartClicked;
+
+    }
     private async void LoadButtons()
     {
         List<Group> groups = await groupDAO.GetPublicGroupsAsync();
@@ -48,5 +50,24 @@ public partial class MainMenu : ContentPage
         b.Button.Clicked += OnButtonClicked;
         BodyContent.Add(b);
     }
+    private async void OnOpenCartClicked(object? sender, EventArgs e)
+    {
+        SideDrawer.IsVisible = true;
+        await SideDrawer.TranslateTo(0, 0, 250, Easing.Linear);
+    }
 
+    private void AddButtonToDrawer(string buttonText)
+    {
+        var button = new Button { Text = buttonText };
+        DynamicButtonContainer.Children.Add(button);
+
+        // Puedes añadir eventos Click u otros manejadores aquí
+    }
+
+    private async void OnOutsideCartTapped(object? sender, EventArgs e)
+    {
+        // Animación para deslizar el desplegable hacia fuera de la pantalla
+        await SideDrawer.TranslateTo(250, 0, 250, Easing.Linear);
+        SideDrawer.IsVisible = false;
+    }
 }
