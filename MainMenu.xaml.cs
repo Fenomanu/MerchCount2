@@ -2,13 +2,14 @@
 using MerchCount2.DataLayer;
 using MerchCount2.Models;
 using MerchCount2.Views;
+using System.ComponentModel;
 using System.Diagnostics;
 
 namespace MerchCount2;
 
 public partial class MainMenu : ContentPage
 {
-	GroupDAO groupDAO;
+    GroupDAO groupDAO;
 	private int _counter = 0;
     //public MainMenu()
     //{
@@ -17,10 +18,10 @@ public partial class MainMenu : ContentPage
 	public MainMenu(GroupDAO database)
 	{
         InitializeComponent();
-		groupDAO = database;
+        groupDAO = database;
         LoadButtons();
         CartButton.Button.Clicked += OnOpenCartClicked;
-
+        ((GroupButton)FirstButton).Button.Clicked += OnButtonClicked;
     }
     private async void LoadButtons()
     {
@@ -52,8 +53,10 @@ public partial class MainMenu : ContentPage
     }
     private async void OnOpenCartClicked(object? sender, EventArgs e)
     {
+        BlackBack.IsVisible = true;
         SideDrawer.IsVisible = true;
-        await SideDrawer.TranslateTo(0, 0, 250, Easing.Linear);
+        await SideDrawer.TranslateTo(0, 0, 100, Easing.SinIn);
+        await BlackBack.TranslateTo(-400,0,100, Easing.SinIn);
     }
 
     private void AddButtonToDrawer(string buttonText)
@@ -67,7 +70,9 @@ public partial class MainMenu : ContentPage
     private async void OnOutsideCartTapped(object? sender, EventArgs e)
     {
         // Animación para deslizar el desplegable hacia fuera de la pantalla
-        await SideDrawer.TranslateTo(250, 0, 250, Easing.Linear);
+        await BlackBack.TranslateTo(0, 0, 0);
+        await SideDrawer.TranslateTo(400, 0, 0);
+        BlackBack.IsVisible = false;
         SideDrawer.IsVisible = false;
     }
 }

@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:MerchCount2"
     Shell.FlyoutBehavior="Disabled"
     Title="MerchCount2">
-
+    
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainMenu}"

@@ -7,9 +7,9 @@
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 BackgroundColor="White"
-                MinimumHeightRequest="40"
-                Margin="10"
-                MinimumWidthRequest="40">
+                MinimumHeightRequest="45"
+                Margin="7"
+                MinimumWidthRequest="45">
         <Button.Shadow>
             <Shadow Brush="Black"
             Offset="-5,5"

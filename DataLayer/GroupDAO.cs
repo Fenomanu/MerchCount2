@@ -23,8 +23,8 @@ namespace MerchCount2.DataLayer
                 return;
 
             Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
-            Debug.Print(string.Format("My Path is : {0}",Constants.DatabasePath));
             var result = await Database.CreateTableAsync<Group>();
+            await SaveItemAsync(new Group());
         }
 
         public async Task<List<Group>> GetItemsAsync()

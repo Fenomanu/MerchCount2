@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MerchCount2.MainMenu"
              xmlns:local="clr-namespace:MerchCount2.Views"
+             Shell.NavBarIsVisible="False"
              Title="MainMenu">
     <Grid>
         <FlexLayout Direction="Column" JustifyContent="Start" BackgroundColor="#FFC0CB">
@@ -13,7 +14,7 @@
                    FontSize="18"
                    BackgroundColor="#FFC0CB"
                    HorizontalTextAlignment="Center"
-                   FlexLayout.Grow="0"/>
+                   MinimumHeightRequest="20"/>
             <Frame BackgroundColor="Transparent" BorderColor="Transparent" FlexLayout.Grow="1">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -38,7 +39,7 @@
                     <Frame CornerRadius="10" 
                                 Padding="0"
                                 HasShadow="False"
-                                BackgroundColor="#565553"
+                                BackgroundColor="#565554"
                                 Grid.Row="0"
                                 Grid.RowSpan="4"
                                 Grid.Column="0">
@@ -99,23 +100,7 @@
                                         BackgroundColor="#FFC0CB"
                                         AlignItems="Start">
                                 <!-- Dynamic content goes here -->
-                                <local:GroupButton/>
-                                <local:GroupButton/>
-                                <local:GroupButton/>
-                                <local:GroupButton/>
-                                <local:GroupButton/>
-                                <local:GroupButton/>
-                                <local:GroupButton/>
-                                <local:GroupButton/>
-                                <local:GroupButton/>
-                                <local:GroupButton/>
-                                <local:GroupButton/>
-                                <local:GroupButton/>
-                                <local:GroupButton/>
-                                <local:GroupButton/>
-                                <local:GroupButton/>
-                                <local:GroupButton/>
-                                <local:GroupButton/>
+                                <local:GroupButton x:Name="FirstButton"/>
                             </FlexLayout>
                         </ScrollView>
                     </Frame>
@@ -129,16 +114,22 @@
                    HorizontalTextAlignment="Center"
                    FlexLayout.Grow="0"/>
         </FlexLayout>
-
-        <ContentView x:Name="SideDrawer" IsVisible="False" BackgroundColor="White"
-                         HorizontalOptions="End" WidthRequest="250"
-                         TranslationX="250">
-            <StackLayout x:Name="DynamicButtonContainer">
-                <!-- Los botones se añadirán dinámicamente aquí -->
-            </StackLayout>
+        <ContentView x:Name="BlackBack"
+                     IsVisible="False"
+                     BackgroundColor="Black"
+                     Opacity=".4"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand">
             <ContentView.GestureRecognizers>
                 <TapGestureRecognizer Tapped="OnOutsideCartTapped"/>
             </ContentView.GestureRecognizers>
+        </ContentView>
+        <ContentView x:Name="SideDrawer" IsVisible="False" BackgroundColor="#FED8B1"
+                         HorizontalOptions="End" WidthRequest="400"
+                         TranslationX="400">
+            <StackLayout x:Name="DynamicButtonContainer">
+                <!-- Los botones se añadirán dinámicamente aquí -->
+            </StackLayout>
         </ContentView>
     </Grid>
 </ContentPage>
