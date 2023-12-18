@@ -52,7 +52,6 @@ public partial class MainMenu : ContentPage
     private async void OnButtonClicked(object? sender, EventArgs e)
 	{
         if (sender is null) return;
-		TopContent.Text = ((Button)sender).Text;
         Group g = new Group();
 		_counter++;
         g.Name = string.Format("Grupo {0}", _counter);
@@ -69,7 +68,6 @@ public partial class MainMenu : ContentPage
     private async void OnLoadGroupPage(object? sender, EventArgs e)
     {
         if (sender is null) return;
-        TopContent.Text = ((Button)sender).Text;
         Group g = new Group();
         _counter++;
         g.Name = string.Format("Grupo {0}", _counter);

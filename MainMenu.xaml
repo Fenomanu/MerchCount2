@@ -5,131 +5,121 @@
              xmlns:local="clr-namespace:MerchCount2.Views"
              Shell.NavBarIsVisible="False"
              Title="MainMenu">
-    <Grid>
-        <FlexLayout Direction="Column" JustifyContent="Start" BackgroundColor="#FFC0CB">
+    <Frame BackgroundColor="#FFC0CB">
+        <Grid>
+            <FlexLayout Direction="Column" JustifyContent="Start" BackgroundColor="#FFC0CB">
 
-            <!-- Header -->
-            <Label Text="HEADER"
-                   x:Name="TopContent"
-                   FontSize="18"
-                   BackgroundColor="Transparent"
-                   HorizontalTextAlignment="Center"
-                   MinimumHeightRequest="20"/>
-            <Frame BackgroundColor="Transparent" BorderColor="Transparent" FlexLayout.Grow="1">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="10"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="60"/>
-                        <!-- Ajustar el MinWidth según sea necesario -->
-                        <ColumnDefinition Width="60"/>
-                        <!-- Ajustar el MinWidth según sea necesario -->
-                    </Grid.ColumnDefinitions>
+                <Frame BackgroundColor="Transparent" BorderColor="Transparent" FlexLayout.Grow="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="100"/>
+                            <!-- Ajustar el MinWidth según sea necesario -->
+                            <ColumnDefinition Width="100"/>
+                            <!-- Ajustar el MinWidth según sea necesario -->
+                        </Grid.ColumnDefinitions>
 
 
-                    <!-- Scrollable Buttons on the Left -->
-                    <Frame CornerRadius="10" 
-                                Padding="0"
-                                HasShadow="False"
-                                BackgroundColor="#565554"
-                                Grid.Row="0"
-                                Grid.RowSpan="4"
-                                Grid.Column="0">
-                        <ScrollView Orientation="Horizontal">
-                            <StackLayout Orientation="Horizontal">
-                                <!-- Add your buttons here -->
-                                <local:ProductButton/>
-                                <local:ProductButton/>
-                                <local:ProductButton/>
-                                <local:ProductButton/>
-                                <local:ProductButton/>
-                                <local:ProductButton/>
-                                <local:ProductButton/>
-                                <local:ProductButton/>
-                                <local:ProductButton/>
-                                <local:ProductButton/>
-                                <local:ProductButton/>
-                                <local:ProductButton/>
-                                <!-- Repeat for other buttons -->
-                            </StackLayout>
-                        </ScrollView>
-                    </Frame>
+                        <!-- Scrollable Buttons on the Left -->
+                        <Frame CornerRadius="20" 
+                                    Padding="0"
+                                    HasShadow="False"
+                                    BorderColor="#565554"
+                                    BackgroundColor="#565554"
+                                    Grid.Row="0"
+                                    Grid.RowSpan="4"
+                                    Grid.Column="0">
+                            <ScrollView Orientation="Horizontal">
+                                <StackLayout Orientation="Horizontal">
+                                    <!-- Add your buttons here -->
+                                    <local:ProductButton/>
+                                    <local:ProductButton/>
+                                    <local:ProductButton/>
+                                    <local:ProductButton/>
+                                    <local:ProductButton/>
+                                    <local:ProductButton/>
+                                    <local:ProductButton/>
+                                    <local:ProductButton/>
+                                    <local:ProductButton/>
+                                    <local:ProductButton/>
+                                    <local:ProductButton/>
+                                    <local:ProductButton/>
+                                    <!-- Repeat for other buttons -->
+                                </StackLayout>
+                            </ScrollView>
+                        </Frame>
 
-                    <!-- Text and Buttons on the Right -->
-                    <Label Text="100 €"
-                               Grid.Row="0"
-                               Grid.Column="2"
-                               VerticalOptions="Center"
-                               HorizontalOptions="Center"/>
-                    <local:SmallButon Grid.Row="0"
-                              Grid.Column="3"
-                              HorizontalOptions="End"
-                              MinimumWidthRequest="30"
-                              x:Name="CartButton"/>
-                    <!-- Ajustar el MinimumWidthRequest según sea necesario -->
-                    <local:SmallButon Grid.Row="1"
-                              Grid.Column="2"
-                              HorizontalOptions="End"
-                              MinimumWidthRequest="30"/>
-                    <!-- Ajustar el MinimumWidthRequest según sea necesario -->
-                    <local:SmallButon Grid.Row="1"
-                              Grid.Column="3"
-                              HorizontalOptions="End"
-                              MinimumWidthRequest="30"/>
-                    <!-- Ajustar el MinimumWidthRequest según sea necesario -->
+                        <!-- Text and Buttons on the Right -->
+                        <Label Text="100 €"
+                                   Grid.Row="0"
+                                   Grid.Column="2"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                        <local:SmallButon Grid.Row="0"
+                                  Grid.Column="3"
+                                  HorizontalOptions="End"
+                                  MinimumWidthRequest="30"
+                                  x:Name="CartButton"/>
+                        <!-- Ajustar el MinimumWidthRequest según sea necesario -->
+                        <local:SmallButon Grid.Row="1"
+                                  Grid.Column="2"
+                                  HorizontalOptions="End"
+                                  MinimumWidthRequest="30"/>
+                        <!-- Ajustar el MinimumWidthRequest según sea necesario -->
+                        <local:SmallButon Grid.Row="1"
+                                  Grid.Column="3"
+                                  HorizontalOptions="End"
+                                  MinimumWidthRequest="30"/>
+                        <!-- Ajustar el MinimumWidthRequest según sea necesario -->
 
-                    <Frame Grid.Row="4"
-                                Grid.Column="0"
-                                Grid.ColumnSpan="4"
-                                FlexLayout.Grow="1"
-                                Margin="0"
-                                BackgroundColor="Transparent" BorderColor="Transparent">
-                        <ScrollView Orientation="Vertical">
-                            <FlexLayout x:Name="BodyContent"
-                                        JustifyContent="Center"
-                                        Wrap="Wrap"
-                                        AlignContent="Start"
-                                        BackgroundColor="Transparent"
-                                        AlignItems="Start">
-                                <!-- Dynamic content goes here -->
-                                <local:GroupButton x:Name="FirstButton"/>
-                            </FlexLayout>
-                        </ScrollView>
-                    </Frame>
-                </Grid>
-            </Frame>
+                        <Frame Grid.Row="4"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="4"
+                                    FlexLayout.Grow="1"
+                                    Padding="0,10,0,0"
+                                    BackgroundColor="Transparent" BorderColor="Transparent">
+                            <ScrollView Orientation="Vertical">
+                                <FlexLayout x:Name="BodyContent"
+                                            JustifyContent="Center"
+                                            Wrap="Wrap"
+                                            AlignContent="Start"
+                                            BackgroundColor="Transparent"
+                                            AlignItems="Start">
+                                    <!-- Dynamic content goes here -->
+                                    <local:GroupButton x:Name="FirstButton"/>
+                                    <local:GroupButton />
+                                </FlexLayout>
+                            </ScrollView>
+                        </Frame>
+                    </Grid>
+                </Frame>
 
-            <!-- Footer -->
-            <Label Text="FOOTER"
-                   FontSize="18"
-                   BackgroundColor="Transparent"
-                   HorizontalTextAlignment="Center"
-                   FlexLayout.Grow="0"/>
-        </FlexLayout>
-        <ContentView x:Name="BlackBack"
-                     IsVisible="False"
-                     BackgroundColor="Black"
-                     Opacity=".4"
-                     HorizontalOptions="FillAndExpand"
-                     VerticalOptions="FillAndExpand">
-            <ContentView.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnOutsideCartTapped"/>
-            </ContentView.GestureRecognizers>
-        </ContentView>
-        <ContentView x:Name="SideDrawer" IsVisible="False" BackgroundColor="#FED8B1"
-                         HorizontalOptions="End" WidthRequest="400"
-                         TranslationX="400">
-            <StackLayout x:Name="DynamicButtonContainer">
-                <!-- Los botones se añadirán dinámicamente aquí -->
-            </StackLayout>
-        </ContentView>
-    </Grid>
+            </FlexLayout>
+            <ContentView x:Name="BlackBack"
+                         IsVisible="False"
+                         BackgroundColor="Black"
+                         Opacity=".4"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand">
+                <ContentView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnOutsideCartTapped"/>
+                </ContentView.GestureRecognizers>
+            </ContentView>
+            <ContentView x:Name="SideDrawer" IsVisible="False" BackgroundColor="#FED8B1"
+                             HorizontalOptions="End" WidthRequest="400"
+                             TranslationX="400">
+                <StackLayout x:Name="DynamicButtonContainer">
+                    <!-- Los botones se añadirán dinámicamente aquí -->
+                </StackLayout>
+            </ContentView>
+        </Grid>
+    </Frame>
 </ContentPage>

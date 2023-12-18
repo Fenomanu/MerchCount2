@@ -4,12 +4,13 @@
              x:Class="MerchCount2.Views.SmallButon">
     <Button Text="€"
                 x:Name="ButtonText"
+                CornerRadius="20"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 BackgroundColor="White"
-                MinimumHeightRequest="45"
-                Margin="7"
-                MinimumWidthRequest="45">
+                MinimumHeightRequest="70"
+                Margin="10"
+                MinimumWidthRequest="70">
         <Button.Shadow>
             <Shadow Brush="Black"
             Offset="-5,5"

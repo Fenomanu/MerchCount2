@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MerchCount2.Views.ProductButton">
     <Button Text="€"
-                CornerRadius="0"
+                CornerRadius="20"
                 x:Name="ButtonText"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 BackgroundColor="White"
-                MinimumHeightRequest="80"
-                Margin="10"
-                MinimumWidthRequest="80">
+                MinimumHeightRequest="120"
+                Margin="20"
+                MinimumWidthRequest="120">
         <Button.Shadow>
             <Shadow Brush="Black"
             Offset="-5,5"
