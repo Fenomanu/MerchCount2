@@ -41,7 +41,7 @@ public partial class TestThree : ContentPage
         _counter++;
         g.Name = string.Format("Grupo {0}", _counter);
         g.Price = 10;
-        await groupDAO.SaveItemAsync(g);
+        await groupDAO.SaveGroupAsync(g);
         Debug.Print("Before Loading");
         //BodyContent.Clear();
         List<Group> groups = await groupDAO.GetPublicGroupsAsync();

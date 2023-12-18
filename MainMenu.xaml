@@ -12,7 +12,7 @@
             <Label Text="HEADER"
                    x:Name="TopContent"
                    FontSize="18"
-                   BackgroundColor="#FFC0CB"
+                   BackgroundColor="Transparent"
                    HorizontalTextAlignment="Center"
                    MinimumHeightRequest="20"/>
             <Frame BackgroundColor="Transparent" BorderColor="Transparent" FlexLayout.Grow="1">
@@ -97,7 +97,7 @@
                                         JustifyContent="Center"
                                         Wrap="Wrap"
                                         AlignContent="Start"
-                                        BackgroundColor="#FFC0CB"
+                                        BackgroundColor="Transparent"
                                         AlignItems="Start">
                                 <!-- Dynamic content goes here -->
                                 <local:GroupButton x:Name="FirstButton"/>
@@ -110,7 +110,7 @@
             <!-- Footer -->
             <Label Text="FOOTER"
                    FontSize="18"
-                   BackgroundColor="#FFC0CB"
+                   BackgroundColor="Transparent"
                    HorizontalTextAlignment="Center"
                    FlexLayout.Grow="0"/>
         </FlexLayout>

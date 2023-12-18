@@ -9,7 +9,7 @@ public partial class GroupButton : ContentView
 	public GroupButton()
 	{
 		InitializeComponent();
-        Button = ButtonText?? new Button();
+        Button = ButtonText ?? new Button();
     }
 	public GroupButton(Group g)
 	{
@@ -17,9 +17,5 @@ public partial class GroupButton : ContentView
         Button = ButtonText;
 		group = g;
 		ButtonText.Text = group.Name;
-	}
-	private void OnButtonClicked(object sender, EventArgs e)
-	{
-
 	}
 }

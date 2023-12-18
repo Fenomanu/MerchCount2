@@ -22,6 +22,10 @@ namespace MerchCount2.DataLayer
 
             Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
             var result = await Database.CreateTableAsync<Product>();
+            if (result.CompareTo(CreateTableResult.Created) == 1)
+            {
+                await CreateDefaultItemsAsync();
+            }
         }
 
         public async Task<List<Product>> GetItemsAsync()
@@ -55,6 +59,29 @@ namespace MerchCount2.DataLayer
             else
             {
                 return await Database.InsertAsync(item);
+            }
+        }
+
+        public async Task<int> CreateDefaultItemsAsync()
+        {
+            List<Product> items = new List<Product>();
+            items.Add(new Product());
+
+            await Init();
+            if (items.All(item => item.ID == 0))
+            {
+                return await Database.InsertAllAsync(items);
+            }
+            else
+            {
+                try
+                {
+                    return await Database.UpdateAllAsync(items);
+                }
+                catch
+                {
+                    return await Database.InsertAsync(new Product());
+                }
             }
         }
 

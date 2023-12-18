@@ -85,6 +85,9 @@
 	  <MauiXaml Update="Views\CartButton.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\CreateButton.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\GroupButton.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
