@@ -58,7 +58,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="addd.svg" />
+	  <None Remove="Resources\adddd.svg" />
 	  <None Remove="Resources\Fonts\Lemon-Tea.ttf" />
+	  <None Remove="Resources\Icons\add.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="addd.svg" />
+	  <MauiImage Include="icons\adddd.svg" />
+	  <MauiImage Include="Resources\Icons\add.svg" />
 	</ItemGroup>
 
 	<ItemGroup>

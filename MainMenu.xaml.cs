@@ -46,7 +46,9 @@ public partial class MainMenu : ContentPage
         BodyContent.Add(adminButton);
 
         //Add Items Button
-
+        CreateButton createButton = new CreateButton();
+        createButton.Button.Clicked += OnLoadGroupPage;
+        BodyContent.Add(createButton);
     }
 
     private async void OnButtonClicked(object? sender, EventArgs e)

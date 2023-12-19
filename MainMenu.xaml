@@ -40,6 +40,7 @@
                             <ScrollView Orientation="Horizontal">
                                 <StackLayout Orientation="Horizontal">
                                     <!-- Add your buttons here -->
+                                    <Image Source="addd.png"></Image>
                                     <local:ProductButton/>
                                     <local:ProductButton/>
                                     <local:ProductButton/>
