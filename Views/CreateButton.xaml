@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MerchCount2.Views.CreateButton">
+             x:Class="MerchCount2.Views.CreateButton"
+             Padding="0">
     <!--<Border Stroke="#FFC0CB"
         StrokeThickness="4"
         Background="#FFC0CB"
@@ -24,27 +25,36 @@
             Opacity="0.2" />
         </Button.Shadow>
     </Button>-->
-    <Frame CornerRadius="20" BackgroundColor="White">
+    <Border Padding="0" Margin="20" BackgroundColor="White" Stroke="White">
         <StackLayout x:Name="ButtonText"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     BackgroundColor="White"
                     MinimumHeightRequest="140"
                     MaximumHeightRequest="140"
-                    Margin="20"
+                    Margin="0"
                     Padding="0"
                     MinimumWidthRequest="140"
                     MaximumWidthRequest="140">
-            <Image Source="add_b.png"></Image>
-            <Label Text="Add"></Label>
+            <Image Source="add_b.png" WidthRequest="60" HeightRequest="60"></Image>
+            <Label Text="Add" TextColor="#565554" HorizontalTextAlignment="Center"></Label>
         </StackLayout>
-        <Frame.Shadow>
+        <Border.Shadow>
             <Shadow Brush="Black"
                     Offset="0,5"
                     Radius="0"
                     Opacity="0.2" />
-        </Frame.Shadow>
-    </Frame>
+        </Border.Shadow>
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="20" />
+        </Border.StrokeShape>
+    </Border>
 
     <!--</Border>-->
+    <!--<ContentView.Shadow>
+        <Shadow Brush="Black"
+                    Offset="0,5"
+                    Radius="0"
+                    Opacity="0.2" />
+    </ContentView.Shadow>-->
 </ContentView>

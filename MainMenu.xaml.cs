@@ -93,7 +93,7 @@ public partial class MainMenu : ContentPage
 
     private void AddButtonToDrawer(string buttonText)
     {
-        var button = new Button { Text = buttonText };
+        var item = new CartItem();
         DynamicButtonContainer.Children.Add(button);
 
         // Puedes añadir eventos Click u otros manejadores aquí
