@@ -6,14 +6,16 @@
         StrokeThickness="4"
         Background="#FFC0CB"
         HorizontalOptions="Center">-->
-    <Button x:Name="ButtonText"
+    <!--<Button x:Name="ButtonText"
                 FlexLayout.Grow="1"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 BackgroundColor="White"
                 MinimumHeightRequest="140"
                 Margin="20"
+                Padding="0"
                 CornerRadius="20"
+                ImageSource="add.png"
                 MinimumWidthRequest="140">
         <Button.Shadow>
             <Shadow Brush="Black"
@@ -21,7 +23,28 @@
             Radius="0"
             Opacity="0.2" />
         </Button.Shadow>
-    </Button>
-    
+    </Button>-->
+    <Frame CornerRadius="20" BackgroundColor="White">
+        <StackLayout x:Name="ButtonText"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    BackgroundColor="White"
+                    MinimumHeightRequest="140"
+                    MaximumHeightRequest="140"
+                    Margin="20"
+                    Padding="0"
+                    MinimumWidthRequest="140"
+                    MaximumWidthRequest="140">
+            <Image Source="add_b.png"></Image>
+            <Label Text="Add"></Label>
+        </StackLayout>
+        <Frame.Shadow>
+            <Shadow Brush="Black"
+                    Offset="0,5"
+                    Radius="0"
+                    Opacity="0.2" />
+        </Frame.Shadow>
+    </Frame>
+
     <!--</Border>-->
 </ContentView>
