@@ -34,14 +34,6 @@ namespace MerchCount2.DataLayer
             return await Database.Table<Product>().ToListAsync();
         }
 
-        public async Task<List<Product>> GetItemsNotDoneAsync()
-        {
-            await Init();
-            return await Database.Table<Product>().Where(t => t.Done).ToListAsync();
-
-            // SQL queries are also possible
-            //return await Database.QueryAsync<TodoItem>("SELECT * FROM [TodoItem] WHERE [Done] = 0");
-        }
 
         public async Task<Product> GetItemAsync(int id)
         {

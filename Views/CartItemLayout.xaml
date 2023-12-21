@@ -2,11 +2,12 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MerchCount2.Views.CartItemLayout">
-    <HorizontalStackLayout>
-        <Image x:Name="Image" Source="add.png"></Image>
-        <Entry x:Name=""  Keyboard="Numeric"></Entry>
+    <HorizontalStackLayout HorizontalOptions="Center">
+        <Image x:Name="Img" Source="add.png"></Image>
+        <Entry x:Name="TextEntry"  Keyboard="Numeric"></Entry>
         <Label 
-            Text="Product \n Saga"
+            x:Name="Text"
+            Text="Placeholder"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         <Image Source="add.png"></Image>

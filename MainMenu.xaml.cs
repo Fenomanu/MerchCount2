@@ -21,6 +21,7 @@ public partial class MainMenu : ContentPage
         groupDAO = database;
         LoadButtons();
         CartButton.Button.Clicked += OnOpenCartClicked;
+        FirstProd.Button.Clicked += AddButtonToDrawer;
         ((GroupButton)FirstButton).Button.Clicked += OnButtonClicked;
     }
     private async void LoadButtons()
@@ -91,13 +92,13 @@ public partial class MainMenu : ContentPage
         await BlackBack.TranslateTo(-400,0,100, Easing.SinIn);
     }
 
-    private void AddButtonToDrawer(string buttonText)
+    private void AddButtonToDrawer(object? sender, EventArgs e)
     {
-        var item = new CartItem();
-        DynamicButtonContainer.Children.Add(button);
-
+        var item = new CartItemLayout(new Product(0, "Product A"));
+        DynamicButtonContainer.Children.Add(item);
         // Puedes añadir eventos Click u otros manejadores aquí
     }
+
 
     private async void OnOutsideCartTapped(object? sender, EventArgs e)
     {

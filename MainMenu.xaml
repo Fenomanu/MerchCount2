@@ -5,10 +5,9 @@
              xmlns:local="clr-namespace:MerchCount2.Views"
              Shell.NavBarIsVisible="False"
              Title="MainMenu">
-    <Frame BackgroundColor="#FFC0CB">
-        <Grid>
+    <Grid>
+        <Frame BackgroundColor="#FFC0CB">
             <FlexLayout Direction="Column" JustifyContent="Start" BackgroundColor="#FFC0CB">
-
                 <Frame BackgroundColor="Transparent" BorderColor="Transparent" FlexLayout.Grow="1">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -40,7 +39,7 @@
                             <ScrollView Orientation="Horizontal">
                                 <StackLayout Orientation="Horizontal">
                                     <!-- Add your buttons here -->
-                                    <local:ProductButton/>
+                                    <local:ProductButton x:Name="FirstProd"/>
                                     <local:ProductButton/>
                                     <local:ProductButton/>
                                     <local:ProductButton/>
@@ -59,25 +58,25 @@
 
                         <!-- Text and Buttons on the Right -->
                         <Label Text="100 €"
-                                   Grid.Row="0"
-                                   Grid.Column="2"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Center"/>
+                                    Grid.Row="0"
+                                    Grid.Column="2"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"/>
                         <local:SmallButon Grid.Row="0"
-                                  Grid.Column="3"
-                                  HorizontalOptions="End"
-                                  MinimumWidthRequest="30"
-                                  x:Name="CartButton"/>
+                                    Grid.Column="3"
+                                    HorizontalOptions="End"
+                                    MinimumWidthRequest="30"
+                                    x:Name="CartButton"/>
                         <!-- Ajustar el MinimumWidthRequest según sea necesario -->
                         <local:SmallButon Grid.Row="1"
-                                  Grid.Column="2"
-                                  HorizontalOptions="End"
-                                  MinimumWidthRequest="30"/>
+                                    Grid.Column="2"
+                                    HorizontalOptions="End"
+                                    MinimumWidthRequest="30"/>
                         <!-- Ajustar el MinimumWidthRequest según sea necesario -->
                         <local:SmallButon Grid.Row="1"
-                                  Grid.Column="3"
-                                  HorizontalOptions="End"
-                                  MinimumWidthRequest="30"/>
+                                    Grid.Column="3"
+                                    HorizontalOptions="End"
+                                    MinimumWidthRequest="30"/>
                         <!-- Ajustar el MinimumWidthRequest según sea necesario -->
 
                         <Frame Grid.Row="4"
@@ -103,23 +102,23 @@
                 </Frame>
 
             </FlexLayout>
-            <ContentView x:Name="BlackBack"
-                         IsVisible="False"
-                         BackgroundColor="Black"
-                         Opacity=".4"
-                         HorizontalOptions="FillAndExpand"
-                         VerticalOptions="FillAndExpand">
-                <ContentView.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnOutsideCartTapped"/>
-                </ContentView.GestureRecognizers>
-            </ContentView>
-            <ContentView x:Name="SideDrawer" IsVisible="False" BackgroundColor="#FED8B1"
-                             HorizontalOptions="End" WidthRequest="400"
-                             TranslationX="400">
-                <StackLayout x:Name="DynamicButtonContainer">
-                    <!-- Los botones se añadirán dinámicamente aquí -->
-                </StackLayout>
-            </ContentView>
-        </Grid>
-    </Frame>
+        </Frame>
+        <ContentView x:Name="BlackBack"
+                        IsVisible="False"
+                        BackgroundColor="Black"
+                        Opacity=".4"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+            <ContentView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnOutsideCartTapped"/>
+            </ContentView.GestureRecognizers>
+        </ContentView>
+        <ContentView x:Name="SideDrawer" IsVisible="False" BackgroundColor="#FED8B1"
+                            HorizontalOptions="End" WidthRequest="400"
+                            TranslationX="400">
+            <VerticalStackLayout x:Name="DynamicButtonContainer" VerticalOptions="StartAndExpand">
+                <!-- Los botones se añadirán dinámicamente aquí -->
+            </VerticalStackLayout>
+        </ContentView>
+    </Grid>
 </ContentPage>
