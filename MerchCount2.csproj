@@ -111,6 +111,9 @@
 	  <MauiXaml Update="Views\ProductButton.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\SagaButton.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\SmallButon.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
