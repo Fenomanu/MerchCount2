@@ -9,7 +9,7 @@
     
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainMenu}"
-        Route="MainMenu"/>
+        ContentTemplate="{DataTemplate local:GroupsPage}"
+        Route="GroupsPage"/>
     
 </Shell>

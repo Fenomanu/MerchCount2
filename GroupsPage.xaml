@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MerchCount2.GroupsPage"
+             xmlns:local="clr-namespace:MerchCount2.Views"
+             Shell.NavBarIsVisible="False"
+             Title="GroupsPage">
+    <FlexLayout Direction="Column" JustifyContent="Start" BackgroundColor="#FFC0CB">
+        <Frame BackgroundColor="Transparent" BorderColor="Transparent" FlexLayout.Grow="1">
+            <Grid BackgroundColor="#FFC0CB">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Text and Buttons on the Right -->
+                <local:CartButton Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalOptions="Start"
+                    MinimumWidthRequest="30"
+                    x:Name="BackButton"/>
+                <Label Text="Group Name"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    VerticalOptions="Center"
+                    MinimumWidthRequest="100"
+                    HorizontalOptions="Start"/>
+
+                <!-- Text and Buttons on the Right -->
+                <Label Text="100 €"
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"/>
+                <local:CartButton Grid.Row="0"
+                    Grid.Column="3"
+                    HorizontalOptions="End"
+                    MinimumWidthRequest="30"
+                    x:Name="CartButton"/>
+
+                <Frame Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   FlexLayout.Grow="1"
+                   BackgroundColor="Transparent" BorderColor="Transparent">
+                    <ScrollView Orientation="Vertical">
+                        <FlexLayout x:Name="BodyContent"
+                                                JustifyContent="Start"
+                                                Wrap="Wrap"
+                                                AlignContent="Start"
+                                                BackgroundColor="Transparent"
+                                                AlignItems="Start">
+                            <!-- Dynamic content goes here -->
+                            <local:GroupButton x:Name="FirstButton"/>
+                            <local:GroupButton/>
+                            <local:GroupButton/>
+                            <local:GroupButton/>
+                            <local:GroupButton/>
+                            <local:GroupButton/>
+                            <local:GroupButton/>
+                            <local:GroupButton/>
+                        </FlexLayout>
+                    </ScrollView>
+                </Frame>
+
+                <!-- Scrollable Buttons on the Left -->
+                <Frame CornerRadius="20" 
+                    Padding="0"
+                    Margin="0"
+                    HasShadow="False"
+                    BorderColor="#565554"
+                    BackgroundColor="#565554"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="2">
+                    <ScrollView Orientation="Vertical">
+                        <StackLayout Orientation="Vertical">
+                            <!-- Add your buttons here -->
+                            <local:ProductButton x:Name="FirstProd"/>
+                            <local:ProductButton/>
+                            <local:ProductButton/>
+                            <local:ProductButton/>
+                            <local:ProductButton/>
+                            <local:ProductButton/>
+                            <local:ProductButton/>
+                            <local:ProductButton/>
+                            <local:ProductButton/>
+                            <local:ProductButton/>
+                            <local:ProductButton/>
+                            <local:ProductButton/>
+                            <!-- Repeat for other buttons -->
+                        </StackLayout>
+                    </ScrollView>
+                </Frame>
+
+                <ScrollView Grid.Row="2"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="4">
+                    <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
+                        <local:SmallButon/>
+                        <local:SmallButon/>
+                        <local:SmallButon/>
+                        <local:SmallButon/>
+                        <local:SmallButon/>
+                        <local:SmallButon/>
+                        <local:SmallButon/>
+                        <local:SmallButon/>
+                        <local:SmallButon/>
+                    </HorizontalStackLayout>
+                </ScrollView>
+            </Grid>
+        </Frame>
+    </FlexLayout>
+</ContentPage>

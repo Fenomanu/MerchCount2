@@ -81,6 +81,9 @@
 	  <MauiXaml Update="Cart.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="GroupsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="NewTry.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

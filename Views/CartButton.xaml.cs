@@ -2,8 +2,10 @@ namespace MerchCount2.Views;
 
 public partial class CartButton : ContentView
 {
-	public CartButton()
+    public Button Button;
+    public CartButton()
 	{
 		InitializeComponent();
+		Button = ButtonText;
 	}
 }

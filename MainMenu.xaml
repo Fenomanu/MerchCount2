@@ -62,7 +62,7 @@
                                     Grid.Column="2"
                                     VerticalOptions="Center"
                                     HorizontalOptions="Center"/>
-                        <local:SmallButon Grid.Row="0"
+                        <local:CartButton Grid.Row="0"
                                     Grid.Column="3"
                                     HorizontalOptions="End"
                                     MinimumWidthRequest="30"
@@ -94,7 +94,6 @@
                                             AlignItems="Start">
                                     <!-- Dynamic content goes here -->
                                     <local:GroupButton x:Name="FirstButton"/>
-                                    <local:GroupButton />
                                 </FlexLayout>
                             </ScrollView>
                         </Frame>
