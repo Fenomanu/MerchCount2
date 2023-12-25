@@ -9,24 +9,33 @@ namespace MerchCount2;
 
 public partial class MainMenu : ContentPage
 {
-    GroupDAO groupDAO;
+    GroupDAO GroupSingleton;
+    ProductDAO ProductSingeton;
 	private int _counter = 0;
-    //public MainMenu()
-    //{
-    //    InitializeComponent();
-    //}
-	public MainMenu(GroupDAO database)
+
+    // Try to make button appearance async
+	public MainMenu(GroupDAO database)//, ProductDAO products)
 	{
+        // Initialize component and store singletons
         InitializeComponent();
-        groupDAO = database;
-        LoadButtons();
+        GroupSingleton = database;
+        //ProductSingeton = products;
+        
+        // Load Groups Buttons
+        LoadGroupsButtons();
+
+        // Load Hot Products
+        //LoadProductsButtons();
+
+        // Event handlers for default buttons
         CartButton.Button.Clicked += OnOpenCartClicked;
-        FirstProd.Button.Clicked += AddButtonToDrawer;
-        ((GroupButton)FirstButton).Button.Clicked += OnButtonClicked;
+        FirstProd.Button.Clicked += AddProductToCart;
+        FirstButton.Button.Clicked += OnButtonClicked;
     }
-    private async void LoadButtons()
+    private async void LoadGroupsButtons()
     {
-        List<Group> groups = await groupDAO.GetGroupsAsync();
+        List<Group> groups = await GroupSingleton.GetGroupsAsync();
+        Debug.Print(string.Format("-- Loaded {0} groups from {1}",groups.Count, GroupSingleton.DataPath));
 
         //Pack Button
         GroupButton adminButton = new GroupButton(groups.Find(item => item.ID == 1)?? new Group());
@@ -52,6 +61,15 @@ public partial class MainMenu : ContentPage
         BodyContent.Add(createButton);
     }
 
+    private async void LoadProductsButtons()
+    {
+        List<Product> hotProducts = await ProductSingeton.GetHotProductsAsync();
+        foreach(Product p in hotProducts)
+        {
+            HotProducts.Add(new ProductButton(p));
+        }
+    }
+
     private async void OnButtonClicked(object? sender, EventArgs e)
 	{
         if (sender is null) return;
@@ -59,44 +77,34 @@ public partial class MainMenu : ContentPage
 		_counter++;
         g.Name = string.Format("Grupo {0}", _counter);
         g.Price = 10;
-        await groupDAO.SaveGroupAsync(g);
+        await GroupSingleton.SaveGroupAsync(g);
         Debug.Print("Before Loading");
         //BodyContent.Clear();
-        List<Group> groups = await groupDAO.GetPublicGroupsAsync();
+        List<Group> groups = await GroupSingleton.GetPublicGroupsAsync();
         GroupButton b = new GroupButton(groups.LastOrDefault(new Group()));
         b.Button.Clicked += OnLoadGroupPage;
-        BodyContent.Add(b);
+        BodyContent.Children.Add(b);
     }
 
     private async void OnLoadGroupPage(object? sender, EventArgs e)
     {
         if (sender is null) return;
-        Group g = new Group();
-        _counter++;
-        g.Name = string.Format("Grupo {0}", _counter);
-        g.Price = 10;
-        await groupDAO.SaveGroupAsync(g);
-        Debug.Print("Before Loading");
-        //BodyContent.Clear();
-        List<Group> groups = await groupDAO.GetPublicGroupsAsync();
-        GroupButton b = new GroupButton(groups.LastOrDefault(new Group()));
-        b.Button.Clicked += OnLoadGroupPage;
-        BodyContent.Add(b);
+
     }
 
     private async void OnOpenCartClicked(object? sender, EventArgs e)
     {
         BlackBack.IsVisible = true;
         SideDrawer.IsVisible = true;
-        await SideDrawer.TranslateTo(0, 0, 100, Easing.SinIn);
-        await BlackBack.TranslateTo(-400,0,100, Easing.SinIn);
+        await SideDrawer.TranslateTo(0, 0, 125, Easing.SinIn);
+        await BlackBack.TranslateTo(-400,0,125, Easing.SinIn);
     }
 
-    private void AddButtonToDrawer(object? sender, EventArgs e)
+    private void AddProductToCart(object? sender, EventArgs e)
     {
-        var item = new CartItemLayout(new Product(0, "Product A"));
-        DynamicButtonContainer.Children.Add(item);
-        // Puedes añadir eventos Click u otros manejadores aquí
+        var item = new CartItemLayout(((ProductButton)(sender??new ProductButton())).GetProduct());
+        CartItems.Add(item);
+
     }
 
 

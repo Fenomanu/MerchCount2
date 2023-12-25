@@ -19,6 +19,13 @@ namespace MerchCount2
             SQLite.SQLiteOpenFlags.SharedCache;
 
         public static string DatabasePath =>
-            Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename);
+            Path.Combine(StoragePath, DatabaseFilename);
+
+        public static string StoragePath =>
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+        public const string ImagesFolder = "Images";
+        public static string ImagesPath =>
+            Path.Combine(Constants.StoragePath, Constants.ImagesFolder);
     }
 }

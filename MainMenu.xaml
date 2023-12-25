@@ -5,10 +5,11 @@
              xmlns:local="clr-namespace:MerchCount2.Views"
              Shell.NavBarIsVisible="False"
              Title="MainMenu">
+    <!-- Grid for Main an Cart -->
     <Grid>
-        <Frame BackgroundColor="#FFC0CB">
+        <!-- Main Frame -->
+        <Frame BackgroundColor="#FFC0CB" Padding="40" BorderColor="#FFC0CB">
             <FlexLayout Direction="Column" JustifyContent="Start" BackgroundColor="#FFC0CB">
-                <Frame BackgroundColor="Transparent" BorderColor="Transparent" FlexLayout.Grow="1">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
@@ -27,7 +28,7 @@
                         </Grid.ColumnDefinitions>
 
 
-                        <!-- Scrollable Buttons on the Left -->
+                        <!-- Most Sold Products (Hot) -->
                         <Frame CornerRadius="20" 
                                     Padding="0"
                                     HasShadow="False"
@@ -37,49 +38,42 @@
                                     Grid.RowSpan="4"
                                     Grid.Column="0">
                             <ScrollView Orientation="Horizontal">
-                                <StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Horizontal" x:Name="HotProducts">
                                     <!-- Add your buttons here -->
                                     <local:ProductButton x:Name="FirstProd"/>
-                                    <local:ProductButton/>
-                                    <local:ProductButton/>
-                                    <local:ProductButton/>
-                                    <local:ProductButton/>
-                                    <local:ProductButton/>
-                                    <local:ProductButton/>
-                                    <local:ProductButton/>
-                                    <local:ProductButton/>
-                                    <local:ProductButton/>
-                                    <local:ProductButton/>
-                                    <local:ProductButton/>
                                     <!-- Repeat for other buttons -->
                                 </StackLayout>
                             </ScrollView>
                         </Frame>
 
-                        <!-- Text and Buttons on the Right -->
+                        <!-- Cart Total Price -->
                         <Label Text="100 €"
                                     Grid.Row="0"
                                     Grid.Column="2"
                                     VerticalOptions="Center"
                                     HorizontalOptions="Center"/>
+                        
+                        <!-- Cart Button -->
                         <local:CartButton Grid.Row="0"
                                     Grid.Column="3"
                                     HorizontalOptions="End"
                                     MinimumWidthRequest="30"
                                     x:Name="CartButton"/>
-                        <!-- Ajustar el MinimumWidthRequest según sea necesario -->
+                        
+                        <!-- History Button -->
                         <local:SmallButon Grid.Row="1"
                                     Grid.Column="2"
                                     HorizontalOptions="End"
                                     MinimumWidthRequest="30"/>
-                        <!-- Ajustar el MinimumWidthRequest según sea necesario -->
-                        <local:SmallButon Grid.Row="1"
+                        
+                        <!-- Prices Button -->
+                    <local:SmallButon Grid.Row="1"
                                     Grid.Column="3"
                                     HorizontalOptions="End"
                                     MinimumWidthRequest="30"/>
-                        <!-- Ajustar el MinimumWidthRequest según sea necesario -->
 
-                        <Frame Grid.Row="4"
+                    <!-- Groups Buttons -->
+                    <Frame Grid.Row="4"
                                     Grid.Column="0"
                                     Grid.ColumnSpan="4"
                                     FlexLayout.Grow="1"
@@ -94,14 +88,21 @@
                                             AlignItems="Start">
                                     <!-- Dynamic content goes here -->
                                     <local:GroupButton x:Name="FirstButton"/>
+                                    <local:GroupButton/>
+                                    <local:GroupButton/>
+                                    <local:GroupButton/>
+                                    <local:GroupButton/>
+                                    <local:GroupButton/>
+                                    <local:GroupButton/>
                                 </FlexLayout>
                             </ScrollView>
                         </Frame>
                     </Grid>
-                </Frame>
 
             </FlexLayout>
         </Frame>
+        
+        <!-- Cart Back -->
         <ContentView x:Name="BlackBack"
                         IsVisible="False"
                         BackgroundColor="Black"
@@ -112,11 +113,13 @@
                 <TapGestureRecognizer Tapped="OnOutsideCartTapped"/>
             </ContentView.GestureRecognizers>
         </ContentView>
+        
+        <!-- Cart View -->
         <ContentView x:Name="SideDrawer" IsVisible="False" BackgroundColor="#FED8B1"
                             HorizontalOptions="End" WidthRequest="400"
                             TranslationX="400">
-            <VerticalStackLayout x:Name="DynamicButtonContainer" VerticalOptions="StartAndExpand">
-                <!-- Los botones se añadirán dinámicamente aquí -->
+            <!-- Cart Items -->
+            <VerticalStackLayout x:Name="CartItems" VerticalOptions="StartAndExpand">
             </VerticalStackLayout>
         </ContentView>
     </Grid>

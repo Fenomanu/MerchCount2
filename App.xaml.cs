@@ -11,6 +11,12 @@
         protected override void OnStart()
         {
             base.OnStart();
+
+            // Inicializacion de aplicacion
+            if (!Directory.Exists(Constants.ImagesPath))
+            {
+                Directory.CreateDirectory(Constants.ImagesPath);
+            }
         }
 
         protected override void OnResume()

@@ -13,6 +13,13 @@ namespace MerchCount2.DataLayer
     {
 
         SQLiteAsyncConnection Database;
+        public string DataPath
+        {
+            get
+            {
+                return Database.DatabasePath;
+            }
+        }
         public GroupDAO()
         {
 
@@ -20,12 +27,16 @@ namespace MerchCount2.DataLayer
         async Task Init()
         {
             if (Database is not null)
+            {
+                Debug.Print("Database exists");
                 return;
+            }
 
             Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
             var result = await Database.CreateTableAsync<Group>();
             if(result.CompareTo(CreateTableResult.Created) == 0)
             {
+                Debug.Print("Creating Groups");
                 await CreateDefaultGroupsAsync();
             }
         }
@@ -42,7 +53,7 @@ namespace MerchCount2.DataLayer
             //return await Database.Table<Group>().Where(t => t.Done).ToListAsync();
 
             //SQL queries are also possible
-            Debug.Print(string.Format(" ++ Getting from {0}", Constants.DatabasePath));
+            //Debug.Print(string.Format(" ++ Getting from {0}", Constants.DatabasePath));
             return await Database.QueryAsync<Group>("SELECT * FROM [Group] WHERE [IsAdminOnly] == false");
         }
 

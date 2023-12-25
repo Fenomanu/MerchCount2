@@ -16,6 +16,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
@@ -33,30 +34,33 @@
                     MinimumWidthRequest="100"
                     HorizontalOptions="Start"/>
 
-                <!-- Text and Buttons on the Right -->
+                <!-- Cart Total -->
                 <Label Text="100 €"
                     Grid.Row="0"
-                    Grid.Column="2"
+                    Grid.Column="3"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"/>
+                
+                <!-- Cart Button -->
                 <local:CartButton Grid.Row="0"
-                    Grid.Column="3"
+                    Grid.Column="4"
                     HorizontalOptions="End"
                     MinimumWidthRequest="30"
                     x:Name="CartButton"/>
 
+                <!-- Sagas List -->
                 <Frame Grid.Row="1"
-                   Grid.Column="0"
-                   Grid.ColumnSpan="2"
-                   FlexLayout.Grow="1"
-                   BackgroundColor="Transparent" BorderColor="Transparent">
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                FlexLayout.Grow="1"
+                BackgroundColor="Transparent" BorderColor="Transparent">
                     <ScrollView Orientation="Vertical">
                         <FlexLayout x:Name="BodyContent"
-                                                JustifyContent="Start"
-                                                Wrap="Wrap"
-                                                AlignContent="Start"
-                                                BackgroundColor="Transparent"
-                                                AlignItems="Start">
+                                            JustifyContent="Start"
+                                            Wrap="Wrap"
+                                            AlignContent="Start"
+                                            BackgroundColor="Transparent"
+                                            AlignItems="Start">
                             <!-- Dynamic content goes here -->
                             <local:GroupButton x:Name="FirstButton"/>
                             <local:GroupButton/>
@@ -70,7 +74,7 @@
                     </ScrollView>
                 </Frame>
 
-                <!-- Scrollable Buttons on the Left -->
+                <!-- Most selled products -->
                 <Frame CornerRadius="20" 
                     Padding="0"
                     Margin="0"
@@ -78,7 +82,7 @@
                     BorderColor="#565554"
                     BackgroundColor="#565554"
                     Grid.Row="1"
-                    Grid.Column="2"
+                    Grid.Column="3"
                     Grid.ColumnSpan="2">
                     <ScrollView Orientation="Vertical">
                         <StackLayout Orientation="Vertical">
@@ -100,20 +104,22 @@
                     </ScrollView>
                 </Frame>
 
+                <!-- Group Selector -->
                 <ScrollView Grid.Row="2"
                         Grid.Column="0"
-                        Grid.ColumnSpan="4"
+                        Grid.ColumnSpan="5"
+                        Padding="0"
                         Orientation="Horizontal">
-                    <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
-                        <local:SmallButon/>
-                        <local:SmallButon/>
-                        <local:SmallButon/>
-                        <local:SmallButon/>
-                        <local:SmallButon/>
-                        <local:SmallButon/>
-                        <local:SmallButon/>
-                        <local:SmallButon/>
-                        <local:SmallButon/>
+                    <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Padding="0">
+                        <local:GroupSwitchButton/>
+                        <local:GroupSwitchButton/>
+                        <local:GroupSwitchButton/>
+                        <local:GroupSwitchButton/>
+                        <local:GroupSwitchButton/>
+                        <local:GroupSwitchButton/>
+                        <local:GroupSwitchButton/>
+                        <local:GroupSwitchButton/>
+                        <local:GroupSwitchButton/>
                     </HorizontalStackLayout>
                 </ScrollView>
             </Grid>

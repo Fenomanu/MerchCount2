@@ -7,7 +7,7 @@
                 CornerRadius="20"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
-                BackgroundColor="White"
+                BackgroundColor="#FED8B1"
                 MinimumHeightRequest="70"
                 Margin="10"
                 MinimumWidthRequest="70">
